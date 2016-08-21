@@ -8,4 +8,6 @@
 ## Demo
 <a href="http://codepen.io/steveliao/pen/YWrmgO" target="_blank">Web Components -- Tabs</a>
 
+<br>
 
+![tabs-img](tabs.png)
