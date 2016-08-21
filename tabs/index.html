@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabs-Web Components</title>
+	<style>
+		/* reset */
+		*{padding: 0; margin: 0 auto;font-family: 'MS Sans Serif', Geneva, sans-serif;}
+		/* main style */
+		header{
+			position: fixed;
+			z-index: 1000;
+			width: 100%;
+			top: 0;
+			background-color: #FF5722;
+			-moz-box-shadow: 0 0 16px #9E9E9E;
+			-webkit-box-shadow: 0 0 16px #9E9E9E;
+			box-shadow: 0 0 16px #9E9E9E;
+		}
+		.header-top{
+			height: 80px;
+			font-size: 26px;
+			color: #fff;
+			line-height: 85px;
+			text-align: center;
+			letter-spacing: 2px;
+		}
+		.tabs{
+			text-align: center;
+		}
+		.tabs a{
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 14px;
+			color: rgba(255, 255, 255, .6);
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+		.tabs a:hover{
+			color: rgba(255, 255, 255, 1);
+		}
+		.tabs a.tab-current{
+			color: rgba(255, 255, 255, 1);
+			border-bottom: 2px solid #fff;
+		}
+		main{
+			width: 100%;
+		}
+		.tab-panels{
+			width: 50%;
+		}
+		.panel{
+			opacity: 0;
+			margin-top: 200px;
+			animation: pageUp 0.4s ease;
+			-moz-animation: pageUp 0.4s ease;
+			animation-fill-mode: forwards;
+		}
+		@keyframes pageUp{
+			to{
+				margin-top: 180px;
+				opacity: 1;
+			}
+		}
+		.news-sec{
+			padding-bottom: 40px;
+		}
+		.news-sec h3{
+			font-size: 20px;
+			color: #424242;
+		}
+		.news-sec p{
+			margin-top: 10px;
+			font-size: 16px;
+			color: #616161;
+			line-height: 24px;
+		}
+		/* pad */
+		@media screen and (max-width: 1000px) {
+			.tab-panels{
+				width: 80%;
+			}
+		}
+		/* phone */
+		@media screen and (max-width: 414px) {
+			.tab-panels{
+				width: 90%;
+			}
+			.header-top{
+				height: 60px;
+				line-height: 65px;
+				font-size: 20px;
+			}
+			.tabs a{
+				padding: 10px 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header>
+			<div class="header-top">TABS</div>
+			<div class="header-nav">
+				<nav class="tabs">
+					<a class="tab-current" href="#tab-1">top</a>
+					<a href="#tab-2">world</a>
+					<a href="#tab-3">tech</a>
+					<a href="#tab-4">science</a>
+				</nav>
+			</div>	
+		</header>
+		<main>
+			<div class="tab-panels">
+				<div class="panel" id="tab-1">
+					<div class="news-sec">
+						<h3>Trump's attorney: African-American outreach efforts working</h3>
+						<p>Michael Cohen says the GOP nominee understands how to solve problems in minority communities on 'Hannity'...</p>
+					</div>
+					<div class="news-sec">
+						<h3>Ford GT Production Extended By Two Years</h3>
+						<p>This right here, ladies and gentlemen, is the new Lamborghini Centenario Roadster. It debuted today at Pebble Beach.Lamborghini calls it a one-off, but that's not quite accurate. 20 examples of it exist, and they've all already been sold. Reportedly for $2.3 million a pop, according to Automotive News.</p>
+					</div>
+					<div class="news-sec">
+						<h3>Appeal denied, questions prevail for US relay team</h3>
+						<p>The latest U.S. debacle in the Olympic relays reached its end point Saturday, when track officials rejected the protest from the American team and upheld their disqualification from the 4x100-meter men's relay race from the night before. The United States crossed the line third, but Canada keeps the bronze medal.</p>
+					</div>
+					<div class="news-sec">
+						<h3>Stranger Things’ Natalia Dyer Says the Timing for Jonathan and Nancy Is Wrong</h3>
+						<p>Some Stranger Things fans may have been surprised to see that Nancy Wheeler ended up with popular Steve instead of Jonathan. But like the show’s creators, actor Natalia Dyer believes it makes total sense that Jonathan wasn’t the right choice for Nancy at the time.</p>
+					</div>
+					<div class="news-sec">
+						<h3>okyo 2020: Everything we know about the next Olympic Games</h3>
+						<p>You'll have to wait a very long time for your next Olympic fix, sadly. The Games in Tokyo don't get going until.</p>
+					</div>
+				</div>
+				<div class="panel" id="tab-2" hidden>
+					<div class="news-sec">
+						<h3>Why teachers won Detroit's 'sick-out' case</h3>
+						<p>After more than a decade of losing enrollment and amassing debt largely under state-appointed emergency managers, the Detroit public school district could be on the verge of writing a new chapter for itself – one in which educators, students, and parents insist on taking back control of their destiny.</p>
+					</div>
+				</div>
+				<div class="panel" id="tab-3" hidden>
+					<div class="news-sec">
+						<h3>Virtual world meets virtual reality as Minecraft heads to Oculus Rift</h3>
+						<p>If you have an Oculus Rift, you can now use it to explore and build in the world of Minecraft...</p>
+					</div>
+					<div class="news-sec">
+						<h3>Facebook’s new teens-only app Lifestage turns bios into video profiles</h3>
+						<p>“What if I figured out a way to take Facebook from 2004 and bring it to 2016? What if every field in your profile was a full video?” asks Facebook’s 19-year-old product prodigy Michael Sayman.</p>
+					</div>
+				</div>
+				<div class="panel" id="tab-4" hidden>
+					<div class="news-sec">
+						<h3>Carbondale begins the countdown to the eclipse</h3>
+						<p>University staff gather at the Saluki stadium in June for a solar observation in preparation for the Aug. 21, 2017 solar eclipse. Carbondale countdown to the eclipse.</p>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		$(function () {
+			var $tabs =  $('.tabs');
+			var $panels = $('.panel');
+
+			$tabs.on('click', 'a', function(event) {
+				event.preventDefault();
+				var id = $(this).attr('href');
+				//Hide the other panel
+				$panels.filter(':not([hidden])').attr('hidden', true);
+				//Show the current panel
+				$(id).removeAttr('hidden');
+
+				$tabs.find('.tab-current').removeClass('tab-current');
+				$(this).addClass('tab-current');
+			});
+		})
+	</script>
+</body>
+</html>
