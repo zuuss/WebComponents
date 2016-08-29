@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Responsive menu-Web Components</title>
+	<style>
+		/*Basics*/
+		body, div, ul, header, nav {
+			margin: 0 auto;
+			padding: 0;
+		}
+		/*Main*/
+		.logo, .nav-link, h1, p, a{
+			font-family: -apple-system, Verdana, Microsoft Yahei, sans-serif;
+			-webkit-font-smoothing: antialiased;
+		}
+		
+		.header-wrapper{
+			position: fixed;
+			z-index: 10;
+			top: 0;
+			width: 100%;
+			height: 60px;
+			border-bottom: 1px solid #971928;
+		}
+		.site-header{
+			height: 100%;
+			background-color: #ce283c;
+		}
+		.header-content{
+			width: 80%;
+		}
+		.logo{
+			float: left;
+			font-size: 26px;
+			color: #fff;
+			line-height: 60px;
+		}
+		.menu-icon{
+			margin-top: 20px;
+			float: right;
+			display: none;
+			width: 50px;
+			border-radius: 5px;
+			font-size: 16px;
+			color: #fff;
+			text-align: center;
+			line-height: 40px;
+			cursor: pointer;
+		}
+		.strip{
+			margin-bottom: 8px;
+			width: 60%;
+			height: 2px;
+			border-radius: 10px;
+			background-color: #fff;
+			transform-origin: 0;
+		}
+		@keyframes top-rotate{
+			to{
+				transform: rotate(43deg);
+			}
+		}
+		@keyframes mid-out{
+			to{
+				transform: translate(5px,0);
+				opacity: 0;
+			}
+		}
+		@keyframes mid-in{
+			to{
+				transform: translate(0,0);
+				opacity: 1;
+			}
+		}
+		@keyframes bot-rotate{
+			to{
+				transform: rotate(-43deg);
+			}
+		}
+		@keyframes return{
+			to{
+				transform: rotate(0deg);
+			}
+		}
+		.global-nav{
+			float: right;
+			margin-right: 10%;
+		}
+		.nav-item{
+			float: left;
+			line-height: 60px;
+			list-style: none;
+		}
+		.nav-link{
+			padding: 0 20px;
+			display: inline-block;
+			font-size: 18px;
+			color: #fff;
+			text-decoration: none;
+			opacity: .7;
+			transition: .1s;
+		}
+		.nav-link:hover{
+			opacity: 1;
+		}
+		@media only screen and (max-width: 780px) {
+			.header-content{
+				width: 95%;
+			}
+			.menu-icon{
+				display: block;
+			}
+			.global-nav{
+				display: none;
+				margin-right: 0;
+				position: relative;
+				z-index: -2;
+				top: -410px;
+				width: 100%;
+				border-top: 1px solid #ff223c;
+				transition: .3s;
+			}
+			.nav-item{
+				float: none;
+				text-align: center;
+				background-color: #a11929;
+				line-height: 80px;
+				border-bottom: 1px solid #bc2537;
+			}
+			.nav-link{
+				display: block;
+				opacity: 1;
+			}
+		}
+		h1{
+			margin-top: 200px;
+			text-align: center;
+			font-size: 36px;
+			color: #616161;
+		}
+		p{
+			font-size: 20px;
+			color: #757575;
+			text-align: center;
+		}
+		.myblog-link{
+			color: #0288D1;
+			text-decoration: none;
+		}
+		.myblog-link:hover{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="header-wrapper">
+		<header class="site-header">
+			<div class="header-content">
+				<div class="logo">LOGO</div>
+				<div class="menu-icon">
+					<div class="strip strip-top"></div>
+					<div class="strip strip-mid"></div>
+					<div class="strip strip-bot"></div>
+				</div>
+			</div>
+			<ul class="global-nav">
+				<li class="nav-item"><a class="nav-link" href="">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="">News</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Blog</a></li>
+				<li class="nav-item"><a class="nav-link" href="">About</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+			</ul>
+		</header>
+	</div>
+	<h1>Responsive menu</h1>
+	<p>By <a class="myblog-link" href="http://liaokeyu.com" target="_blank">Wukon</a><br><br>Try to adjust the width of the browser < 780 px</p>
+	<script src="http://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+	<script>
+		var clickFlag = true;
+		$('.menu-icon').click(function(event) {
+			//icon animation
+			if (clickFlag) {
+				clickFlag = false;
+				$('.global-nav').show();
+				//动效参数初始化
+				$('.strip:nth-child(1)').css('transform', 'rotate(0deg)');
+				$('.strip:nth-child(2)').css({
+					'transform': 'translate(0,0)',
+					'opacity': '1'
+				});
+				$('.strip:nth-child(3)').css('transform', 'rotate(0deg)');
+				//执行
+				$('.strip:nth-child(1)').css({
+					'animation': 'top-rotate .3s',
+					'animation-fill-mode': 'forwards'
+				});
+				$('.strip:nth-child(2)').css({
+					'animation': 'mid-out .2s',
+					'animation-fill-mode': 'forwards'
+				});
+				$('.strip:nth-child(3)').css({
+					'animation': 'bot-rotate .3s',
+					'animation-fill-mode': 'forwards'
+				});
+				
+			}else{
+				clickFlag = true;
+				//动效参数初始化 setting value
+				$('.strip:nth-child(1)').css('transform', 'rotate(43deg)');
+				$('.strip:nth-child(2)').css({
+					'transform': 'translate(5px,0)',
+					'opacity': '0'
+				});
+				$('.strip:nth-child(3)').css('transform', 'rotate(-43deg)');
+				//执行 start animation
+				$('.strip:nth-child(1)').css({
+					'animation': 'return .3s',
+					'animation-fill-mode': 'forwards'
+				});
+				$('.strip:nth-child(2)').css({
+					'animation': 'mid-in .3s',
+					'animation-fill-mode': 'forwards'
+				});
+				$('.strip:nth-child(3)').css({
+					'animation': 'return .3s',
+					'animation-fill-mode': 'forwards'
+				});
+			}
+			// show menu
+			if($('.global-nav').css('top')!='1px'){
+				$('.global-nav').css('top', '1px');
+			}else{
+				$('.global-nav').css('top', '-410px');
+			}
+		});
+	</script>
+</body>
+</html>
