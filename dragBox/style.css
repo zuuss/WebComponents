@@ -1,0 +1,81 @@
+body, div, form{
+	padding: 0;
+	margin: 0 auto;
+}
+body {
+	background-color: #E0E0E0;
+}
+.box {
+	position: absolute;
+	top: 100px;
+	left: 400px;
+	width: 400px;
+	height: 300px;
+	background-color: #616161;
+	border-radius: 10px;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+}
+.box-header {
+	width: 100%;
+	height: 50px;
+	background-color: #212121;
+	border-radius: 10px 10px 0 0;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	line-height: 50px;
+	font-family: sans-serif;
+}
+form {
+	margin-top: 30px;
+	width: 320px;
+}
+input {
+	width: 280px;
+	height: 50px;
+	border: 0;
+	padding: 0;
+	outline: none;
+	background-color: #424242;
+	font-size: 16px;
+	color: #fff;
+	padding: 0 20px;
+	font-family: sans-serif;
+}
+input[name='uname'] {
+	border-radius: 6px 6px 0 0;
+	border-bottom: 2px solid #000;
+}
+input[name='pwd'] {
+	border-radius: 0 0 6px 6px;
+}
+button {
+	margin-top: 30px;
+	width: 100%;
+	height: 50px;
+	background-color: #80CBC4;
+	outline: none;
+	border: 0;
+	cursor: pointer;
+	border-radius: 6px;
+	font-size: 16px;
+	color: #fff;
+	font-family: sans-serif;
+	border-bottom: 3px solid #00796B;
+}
+button:hover {
+	background-color: #4DB6AC;
+}
+.tips{
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 10px 30px;
+	background-color: #DCEDC8;
+	font-size: 16px;
+	color: #2E7D32;
+	letter-spacing: 1px;
+	line-height: 20px;
+	border-radius: 5px;
+	border: 1px solid #AED581;
+}
