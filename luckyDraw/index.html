@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		body, div{
+			padding: 0;
+			margin: 0 auto;
+		}
+		body {
+			background-color: #FFEB3B;
+		}
+		.oPanel {
+			position: fixed;
+			bottom: 0;
+			z-index: 10;
+			width: 100%;
+			height: 200px;
+			background-color: #7C4DFF;
+		}
+		.ok {
+			display: block;
+			margin: 0 auto;
+			width: 120px;
+			height: 120px;
+			background-color: #FFEB3B;
+			outline: none;
+			border: 3px solid #5E35B1;
+			border-radius: 80px;
+			font-size: 16px;
+			font-family: sans-serif;
+			color: #7C4DFF;
+			margin-top: 40px;
+		}
+		.main {
+			width: 100%;
+		}
+		.prizeText {
+			font-size: 30px;
+			font-family: sans-serif;
+			color: #7C4DFF;
+			text-align: center;
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<main class="main">
+		<h3 class="prizeText" id="text">欢迎抽奖～</h3>
+	</main>
+	<div class="oPanel ">
+		<button class="ok" id="ok">开始抽奖</button>
+	</div>
+	 <script>
+    	var btn = document.getElementById('ok'),
+    		text = document.getElementById('text'),
+    		data = ["iPhone", "谢谢参与", "iPad", "佳能相机", "谢谢参与", "50元话费", "MacBook", "百事可乐", "KFC全家桶", "100RMB", "小米手环"],
+    		btnDeColor = '#FFEB3B',
+    		btnBanColor = '#B39DDB',
+    		btnText1 = '开始抽奖',
+    		btnText2 = '正在抽奖',
+			timer = null,
+			timeOut = null;
+
+		btn.style.backgroundColor = btnDeColor;
+	    btn.onclick=play;
+
+	    function play() {
+	    	clearInterval(timer);
+	    	btn.disabled = true;
+	    	timer = setInterval(function(){
+				var random = Math.floor(Math.random() * data.length);
+				text.innerHTML = data[random];
+			}, 50);
+			timeOut = setTimeout("stop();", 1600);
+			btn.style.backgroundColor = btnBanColor;
+			btn.innerHTML = btnText2;
+	    }
+
+	    function stop() {
+	    	clearInterval(timer);
+	    	btn.disabled = false;
+	    	btn.style.backgroundColor = btnDeColor;
+	    	btn.innerHTML = btnText1;
+	    }
+</script>
+</body>
+</html>
