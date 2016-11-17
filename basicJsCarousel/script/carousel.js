@@ -8,6 +8,7 @@
      indicators = $('carousel-indicators').getElementsByClassName('carousel-inditem'),
      prev = $('carousel-prev'),
      next = $('carousel-next'),
+     totalPic = document.getElementsByClassName('carousel-pic').length,
      index = 1, // 保存点击的目标下标
      timer; // 自动播放定时器
 
