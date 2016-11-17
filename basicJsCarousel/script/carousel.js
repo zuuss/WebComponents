@@ -1,29 +1,4 @@
 
-// 参数初始化（获取自定义模块尺寸，以便对容器大小，图片参数，按钮位置）
-var containerWidth = parseInt(getStyle($('carousel-box'), 'width')),
-    totalPic = document.getElementsByClassName('carousel-pic').length;
-alert(containerWidth);
-
-/*
- * 自定义工具函数
- */
-
-// 封装一个id选择器
-function $(idName) {
-    return document.getElementById(idName);
-}
-
-// css样式
-function getStyle(el, styleName) {
-    if( el.currentStyle ) {
-        // for IE
-        return el.currentStyle[styleName];
-    } else {
-        // for peace
-        return getComputedStyle(el, false)[styleName];
-    }
-}
-
 /*
  * 全局变量
  */
@@ -36,6 +11,25 @@ function getStyle(el, styleName) {
      index = 1, // 保存点击的目标下标
      timer; // 自动播放定时器
 
+/*
+ * 自定义工具函数
+ */
+
+// 封装一个id选择器
+function $(idName) {
+    return document.getElementById(idName);
+}
+
+// 读取css样式
+function getStyle(el, styleName) {
+    if( el.currentStyle ) {
+        // for IE
+        return el.currentStyle[styleName];
+    } else {
+        // for peace
+        return getComputedStyle(el, false)[styleName];
+    }
+}
 
 /*
  * 滑动轮播代码
