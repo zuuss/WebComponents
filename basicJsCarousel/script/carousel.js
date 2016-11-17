@@ -1,9 +1,8 @@
 
-// 参数初始化
-var containerWidth = getComputedStyle($('carousel-box'), false).width,
+// 参数初始化（获取自定义模块尺寸，以便对容器大小，图片参数，按钮位置）
+var containerWidth = parseInt(getStyle($('carousel-box'), 'width')),
     totalPic = document.getElementsByClassName('carousel-pic').length;
 alert(containerWidth);
-
 
 /*
  * 自定义工具函数
@@ -14,8 +13,16 @@ function $(idName) {
     return document.getElementById(idName);
 }
 
-// 
-
+// css样式
+function getStyle(el, styleName) {
+    if( el.currentStyle ) {
+        // for IE
+        return el.currentStyle[styleName];
+    } else {
+        // for peace
+        return getComputedStyle(el, false)[styleName];
+    }
+}
 
 /*
  * 全局变量
