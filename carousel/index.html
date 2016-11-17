@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="style/carousel.css">
+</head>
+<body>
+    <div class="carousel-box" id="carousel-box">
+        <div class="carousel-pic-list" id="carousel-pic-list" style="left:0;">
+            <img src="img/pic1.png" alt="" class="carousel-pic">
+            <img src="img/pic2.png" alt="" class="carousel-pic">
+            <img src="img/pic3.png" alt="" class="carousel-pic">
+            <img src="img/pic4.png" alt="" class="carousel-pic">
+            <img src="img/pic5.png" alt="" class="carousel-pic">
+        </div>
+        <div class="carousel-indicators" id="carousel-indicators">
+            <div class="carousel-inditem ci-active" data-index="1"></div>
+            <div class="carousel-inditem" data-index="2"></div>
+            <div class="carousel-inditem" data-index="3"></div>
+            <div class="carousel-inditem" data-index="4"></div>
+            <div class="carousel-inditem" data-index="5"></div>
+        </div>
+        <a href="javascript:;" class="carousel-control-item carousel-control-prev" id="carousel-prev"></a>
+        <a href="javascript:;" class="carousel-control-item carousel-control-next" id="carousel-next"></a>
+    </div>
+    <script src="script/carousel.js"></script>
+</body>
+</html>

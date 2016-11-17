@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+}
+/*
+ * 轮播容器
+ */
+.carousel-box {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    margin: 60px auto 0 auto;
+    background-color: #333;
+    overflow: hidden;
+}
+/*
+ * 轮播图片列表
+ */
+.carousel-pic-list {
+    position: absolute;
+    width: 3500px;
+    -moz-transition: left .6s ease-in-out;
+    -webkit-transition: left .6s ease-in-out;
+    -o-transition: left .6s ease-in-out;
+    transition: left .6s ease-in-out;
+}
+.carousel-pic {
+    display: block;
+    float: left;
+}
+/*
+ * 轮播导航圆点
+ */
+.carousel-indicators {
+    position: absolute;
+    right: 50%;
+    bottom: 15px;
+    left: 50%;
+    width: 90px;
+    margin: 0 -54px 0 -54px;
+    padding: 0 4px;
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 10px;
+}
+.carousel-inditem {
+    display: block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 4px;
+    background-color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.ci-active {
+    background-color: #F44336;
+}
+/*
+ * 轮播前进后退按钮
+ */
+.carousel-control-item {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 40px;
+    height: 60px;
+    margin-top: -30px;
+    background-color: rgba(0, 0, 0, .3);
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+.carousel-control-prev {
+    left: -40px;
+}
+.carousel-control-next {
+    right: -40px;
+}
+.carousel-box:hover .carousel-control-prev {
+    left: 0;
+}
+.carousel-box:hover .carousel-control-next {
+    right: 0;
+}
